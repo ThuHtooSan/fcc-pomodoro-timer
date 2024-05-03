@@ -1,0 +1,114 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+@use '../../sass/functions' as *;
+
+.about-controller {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  background: darken($teal, 10%);
+  backdrop-filter: $blur;
+  box-shadow: $box-shadow;
+  border-radius: 0 0 50% 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  @include flex-row-center;
+  color: $primary;
+  z-index: 2;
+  transition: $transition-duration;
+
+  &:hover {
+    background: $primary;
+    color: adaptive-text($primary);
+  }
+}
+
+// change button color on 'break' time
+body[data-type='break'] .about-controller {
+  background: darken($purple, 10%);
+}
+
+// modal container
+.about-container {
+  @include modal-container(rgba(0, 0, 0, 0.2));
+  z-index: 99;
+
+  // modal
+  .about {
+    @include modal-center($white, 8px);
+    backdrop-filter: none;
+    max-width: 350px;
+    color: $black;
+    padding: 20px !important;
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .dismiss-about {
+      @include modal-dismiss-btn(
+        right,
+        darken($primary, 10%),
+        darken($primary, 30%)
+      );
+      padding: 0;
+      top: 10px;
+      right: 15px;
+      color: $navy;
+
+      svg {
+        width: 1.5rem;
+      }
+    }
+
+    .separator {
+      width: 50px;
+      height: 2px;
+      border-radius: 20px;
+      box-shadow: $box-shadow;
+      background: grey;
+      margin: 10px auto;
+    }
+
+    .tech-stack {
+      @include flex-col(5px);
+
+      .title {
+        font-size: 1rem;
+      }
+
+      .technologies {
+        @include flex-row-center(10px);
+        flex-wrap: wrap;
+
+        li {
+          @include flex-row(5px);
+          padding: 5px 10px;
+          color: $white;
+          fill: $white;
+          border-radius: 5px;
+          box-shadow: $box-shadow;
+          list-style-type: none;
+          cursor: grab;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $navy;
+    }
+
+    svg {
+      width: 14px;
+    }
+
+    img {
+      width: 18px;
+      pointer-events: none;
+    }
+  }
+}
