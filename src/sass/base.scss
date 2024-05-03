@@ -1,0 +1,94 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:not(i) {
+    font-family: 'Jost', sans-serif;
+  }
+}
+
+body {
+  height: 100dvh;
+  color: $black-font;
+  transition: $transition-duration;
+  background: $teal;
+
+  &[data-type='session'] {
+    background: $teal;
+  }
+
+  &[data-type='break'] {
+    background: $purple;
+  }
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  @include flex-col(30px);
+}
+
+button {
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@for $level from 1 through 3 {
+  h#{$level} {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+.white-space {
+  white-space: pre;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.hidden {
+  position: absolute;
+  top: -999999;
+  left: -9999999;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Event Delegation Fix */
+button > * {
+  pointer-events: none;
+}
+
+a {
+  color: darken($primary, 20%);
+
+  &,
+  button {
+    cursor: pointer;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: $transition-duration;
+    }
+  }
+}
+
+::selection {
+  background-color: $primary;
+  color: $white;
+}

@@ -1,0 +1,67 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
+.timer {
+  @include flex-col(35px);
+  align-items: center;
+  transition: $transition-duration;
+  text-transform: uppercase;
+
+  &[data-type='session'] {
+    color: $red;
+
+    .play-pause:hover {
+      background: $red;
+      color: $white;
+    }
+
+    .reset:hover {
+      background: $error;
+      color: $white;
+    }
+  }
+
+  &[data-type='break'] {
+    color: $yellow;
+
+    .play-pause:hover {
+      background: $navy;
+      color: $white;
+    }
+
+    .reset:hover {
+      background: $error;
+      color: $white;
+    }
+  }
+
+  &-type {
+    font-size: 1.4rem;
+  }
+
+  .time-left {
+    font-size: 5rem;
+  }
+
+  .controls-wrapper {
+    @include flex-row(15px);
+    margin-top: 10px;
+
+    .controls {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      box-shadow: $box-shadow;
+      transition: $transition-duration;
+    }
+
+    .play-pause {
+      background: $grey;
+      color: $navy;
+    }
+
+    .reset {
+      background: $navy;
+    }
+  }
+}

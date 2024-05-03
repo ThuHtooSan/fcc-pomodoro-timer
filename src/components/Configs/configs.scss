@@ -1,0 +1,97 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
+.config-container {
+  @include flex-col(25px);
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 15px 25px;
+  width: 300px;
+  border-radius: $border-radius;
+  margin-bottom: 20px;
+  background: transparentize($grey, 0.4);
+  backdrop-filter: $blur;
+  box-shadow: $box-shadow;
+  cursor: grab;
+
+  &::before {
+    content: '';
+    width: 45px;
+    height: 3px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-inline: auto;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .configs {
+    @include flex-col(10px);
+
+    input[type='range'] {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .config {
+      @include flex-col(5px);
+
+      .label-wrapper {
+        @include flex-row;
+        justify-content: space-between;
+
+        .btn-wrapper {
+          @include flex-row(5px);
+
+          button {
+            background: none;
+            color: $navy;
+            border-radius: 0;
+            transition: $transition-duration;
+            cursor: pointer;
+
+            &:hover {
+              color: $primary;
+            }
+
+            &[data-status='disabled'] {
+              opacity: 0.3;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      .current-value-wrapper {
+        width: calc(100% - 23px);
+        margin-left: 5px;
+        position: relative;
+        margin-bottom: 20px;
+
+        .current-value {
+          position: absolute;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .reset {
+      background: $navy;
+      padding: 7px 10px;
+      width: fit-content;
+      margin-inline: auto;
+      transition: $transition-duration;
+
+      &:hover {
+        background: $error;
+        color: $white;
+      }
+    }
+  }
+}

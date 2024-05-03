@@ -1,0 +1,40 @@
+$yellow: rgb(255, 209, 27);
+$pink: rgb(248, 189, 235);
+$blue: rgb(82, 114, 242);
+$navy: rgb(60, 72, 107);
+$teal: rgb(31, 138, 112);
+$green: rgb(3, 201, 136);
+$red: rgb(216, 0, 50);
+$white: rgb(241, 246, 249);
+$black: $navy;
+$grey: rgb(240, 240, 240);
+$black-font: rgb(61, 59, 64);
+
+$success: $green;
+$warning: $yellow;
+$error: $red;
+
+// color palettes
+$red: rgb(253, 138, 138);
+$yellow: rgb(241, 247, 181);
+$teal: rgb(168, 209, 209);
+$purple: rgb(158, 161, 212);
+
+$primary: $navy;
+$secondary: $teal;
+$tertiary: $yellow;
+$bg: $teal;
+
+$max-width: 1400px;
+
+$border-radius: 8px;
+$pill-border: 30px;
+
+$box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+$blur: blur(6px);
+
+$transition-duration: 0.3s;
+$animation-duration: 0.5s;
+
+$button-bg: $primary;
+$button-color: $white;
