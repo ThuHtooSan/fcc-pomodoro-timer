@@ -1,4 +1,4 @@
-import pkgjson from '/package.json';
+import pkgjson from '../../../package.json';
 import './about.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
@@ -16,7 +16,6 @@ import {
 import { Technologies } from './About.types';
 import parseHtml from 'html-react-parser';
 import { getTextColor } from '../../utils/getTextColor';
-import { useAppSelector } from '../../hooks/reduxTypedHooks';
 
 const technologies: Technologies = {
   react: {

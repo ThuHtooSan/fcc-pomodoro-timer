@@ -2,7 +2,6 @@ import './header.scss';
 import fccLogo from '../../assets/images/freeCodeCamp.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
-import { useAppSelector } from '../../hooks/reduxTypedHooks';
 import About from '../About';
 
 const Header = () => {

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Configs, Header, Timer } from '../../components';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxTypedHooks';
+import { useAppDispatch } from '../../hooks/reduxTypedHooks';
 import { restoreDurations } from '../../redux/slices/timerSlice';
 import './home.scss';
 
