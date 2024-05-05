@@ -22,9 +22,15 @@ const Timer = () => {
   const dispatch = useAppDispatch();
   const audioElem = useRef<HTMLAudioElement>(null!);
   const startTimer = useTimer();
-  const time = [Math.floor(timeLeft / 60), timeLeft % 60]
-    .map(digit => (digit < 10 ? `0${digit}` : String(digit)))
-    .join(':');
+  const time = [Math.floor(timeLeft / 60), timeLeft % 60].reduce(
+    (result: string[], item, index) => {
+      result.push(item < 10 ? `0${item}` : String(item));
+      if (index === 0) result.push(':');
+
+      return result;
+    },
+    []
+  );
 
   useEffect(() => {
     document.body.dataset.type = type;
@@ -77,7 +83,9 @@ const Timer = () => {
           className='time-left'
           id='time-left'
         >
-          {time}
+          {time.map(time => (
+            <span key={time}>{time}</span>
+          ))}
         </p>
 
         <div className='controls-wrapper'>
