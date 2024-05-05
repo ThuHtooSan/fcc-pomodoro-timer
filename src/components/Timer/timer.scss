@@ -41,6 +41,12 @@
 
   .time-left {
     font-size: 5rem;
+    display: flex;
+
+    span:nth-child(2) {
+      height: 100%;
+      line-height: 100%;
+    }
   }
 
   .controls-wrapper {
