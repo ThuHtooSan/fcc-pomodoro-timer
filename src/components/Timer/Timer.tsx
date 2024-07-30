@@ -83,8 +83,8 @@ const Timer = () => {
           className='time-left'
           id='time-left'
         >
-          {time.map(time => (
-            <span key={time}>{time}</span>
+          {time.map((time, index) => (
+            <span key={`${time}-${index}`}>{time}</span>
           ))}
         </p>
 
