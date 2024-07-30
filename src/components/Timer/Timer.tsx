@@ -44,7 +44,7 @@ const Timer = () => {
     let documentTitle = '';
 
     if (isPlaying) {
-      documentTitle = `${type.toUpperCase()} - ${time} ⏳`;
+      documentTitle = `${type.toUpperCase()} - ${time.join('')} ⏳`;
 
       if (timeLeft < 10) {
         if (timeLeft === 0) {
